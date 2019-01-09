@@ -5,7 +5,7 @@ ruby '2.4.4'
 
 # custom
 gem 'devise'
-
+gem 'toastr-rails'
 # end of custom
 
 
