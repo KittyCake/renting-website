@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Browse</a></li>
         <li><a href="#">List item</a></li>
+        <%= link_to 'List an item', items_path, method: :post %>
 
         <% if (!user_signed_in?) %>
           <li><%= link_to "login", new_user_session_path %></li>

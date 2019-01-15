@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Create an item
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <%= form_for @item do |f| %>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.label :item_name, "Give your item a name..." %>
+              <%= f.text_field :item_name, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

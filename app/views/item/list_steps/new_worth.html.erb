@@ -1,0 +1,22 @@
+<%= form_for @item, method: :put, url: wizard_path do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="error_messages">
+      <% f.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Item Worth</legend>
+
+    <div>
+      <%= f.label :price_worth %>
+      <%= f.text_field :price_worth %>
+    </div>
+
+    <div>
+      <%= f.submit 'Next Step' %>
+    </div>
+  </fieldset>
+<% end %>
