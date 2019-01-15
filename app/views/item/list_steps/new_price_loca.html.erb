@@ -1,37 +1,51 @@
-<%= form_for @item, method: :put, url: wizard_path do |f| %>
-  <% if f.object.errors.any? %>
-    <div class="error_messages">
-      <% f.object.errors.full_messages.each do |error| %>
-        <p><%= error %></p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Step 4
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <%= form_for @item, method: :put, url: wizard_path do |f| %>
+        <% if f.object.errors.any? %>
+          <div class="error_messages">
+            <% f.object.errors.full_messages.each do |error| %>
+              <p><%= error %></p>
+            <% end %>
+          </div>
+        <% end %>
+
+        <fieldset>
+          <div class="row">
+            <legend>Set your price...</legend>
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= f.label :price_daily, "Daily" %>
+                <%= f.number_field :price_daily, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :price_weekly, "Weekly" %>
+                <%= f.number_field :price_weekly, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :price_monthly, "Monthly" %>
+                <%= f.number_field :price_monthly, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <legend>Item location...</legend>
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= f.text_field :post_code, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <%= f.submit 'Submit', class: "btn btn-primary" %>
+          </div>
+        </fieldset>
       <% end %>
     </div>
-  <% end %>
+  </div>
+</div>
 
-  <fieldset>
-    <legend>Item Price and Location</legend>
-
-    <div>
-      <%= f.label :price_daily %>
-      <%= f.number_field :price_daily %>
-    </div>
-
-    <div>
-      <%= f.label :price_weekly %>
-      <%= f.number_field :price_weekly %>
-    </div>
-
-    <div>
-      <%= f.label :price_monthly %>
-      <%= f.number_field :price_monthly %>
-    </div>
-
-    <div>
-      <%= f.label :post_code %>
-      <%= f.text_field :post_code %>
-    </div>
-
-    <div>
-      <%= f.submit 'Submit' %>
-    </div>
-  </fieldset>
-<% end %>

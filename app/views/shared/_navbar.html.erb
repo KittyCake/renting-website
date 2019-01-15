@@ -9,14 +9,13 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <%= image_tag "logo-llama-01@2x" %>
+        <%= link_to image_tag("logo-llama-01@2x", style: "height: 40px"), root_path %>
       </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Browse</a></li>
-        <li><a href="#">List item</a></li>
-        <%= link_to 'List an item', items_path, method: :post %>
+        <li><%= link_to 'List item', items_path, method: :post %></li>
 
         <% if (!user_signed_in?) %>
           <li><%= link_to "login", new_user_session_path %></li>
