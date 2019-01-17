@@ -1,2 +1,80 @@
-<h1>Item#edit</h1>
-<p>Find me in app/views/item/edit.html.erb</p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= render 'shared/account_tabs' %>
+  </div>
+  <div class="col-md-8">
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="container">
+            <%= form_for @item do |f| %>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= f.label :item_name, 'Item name' %>
+                    <%= f.text_field :item_name, class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label 'Category 1' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label 'Category 2' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label 'Category 3' %>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= f.label :post_code, 'Postcode' %>
+                    <%= f.text_field :post_code, class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label 'Minimum rental period' %>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-sm-4">
+                        <%= f.label :price_daily, 'Daily' %>
+                        <%= f.number_field :price_daily, class: 'form-control' %>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= f.label :price_weekly, 'Weekly' %>
+                        <%= f.number_field :price_weekly, class: 'form-control' %>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= f.label :price_monthly, 'Monthly' %>
+                        <%= f.number_field :price_monthly, class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.label :description %>
+                    <%= f.text_area :description, class: 'form-control' %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.label :item_photo %>
+                    <%= f.text_field :item_photo, class: 'form-control' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <%= f.submit 'Save changes', class: 'btn btn-primary' %>
+              </div>
+            <% end %>
+            <div class="text-center">
+              <%= link_to 'Delete', item_path, class: 'btn btn-danger', method: :delete %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

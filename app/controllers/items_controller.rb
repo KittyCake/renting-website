@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy!
+    redirect_to items_path
   end
 
   private
@@ -49,6 +50,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:item_name, :item_photo, :description, :price_worth, :price_daily, :price_monthly, :post_code, :active)
+    params.require(:item).permit(:item_name, :item_photo, :description, :price_daily, :price_weekly, :price_monthly, :post_code)
   end
 end
