@@ -4,27 +4,15 @@
   </div>
   <div class="col-md-8 col-md-offset-2">
     <% @items.each do |item| %>
-      <div class="panel panel-default">
-          <div class="panel-body">
-              <div class="col-md-4">
-                <%= item.item_photo %>
-              </div>
-              <div class="col-md-4">
-                <%= item.item_name %>
-              </div>
-              <div class="col-md-4">
-                <%= item.price_daily %>
-              </div>
-              <div class="col-md-4">
-                <%= item.created_at %>
-              </div>
-              <div class="btn btn-warning">
-                <%= link_to 'Edit', edit_item_path(item) %>
-              </div>
-              <div class="btn btn-danger">
-                <%= link_to 'Delete', item_path(item), method: :delete %>
-              </div>
-          </div>
+      <div class="col-md-4">
+        <%= render 'shared/item_card', item_name: "#{item.item_name}", description: "#{item.description}", price_daily: "#{item.price_daily}", created_at: "#{item.created_at}", item: "#{item}" %>
+        <div class="btn btn-warning">
+        <%= link_to 'Edit', edit_item_path(item) %>
+        </div>
+        <div class="btn btn-danger">
+          <%= link_to 'Delete', item_path(item), method: :delete %>
+        </div>
+
       </div>
     <% end %>
   </div>
