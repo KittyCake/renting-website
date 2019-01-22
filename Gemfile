@@ -7,6 +7,7 @@ ruby '2.4.4'
 gem 'devise'
 gem 'toastr-rails'
 gem 'wicked'
+gem 'ancestry'
 # end of custom
 
 

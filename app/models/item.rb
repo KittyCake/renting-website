@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  belongs_to :category
 
   # validates :item_name, presence: true, length: {minimum: 10, maximum: 50}
   # validates :item_photo, presence: true
