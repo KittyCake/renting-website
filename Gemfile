@@ -8,6 +8,7 @@ gem 'devise'
 gem 'toastr-rails'
 gem 'wicked'
 gem 'ancestry'
+gem 'simple_form'
 # end of custom
 
 

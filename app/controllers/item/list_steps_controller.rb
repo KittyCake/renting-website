@@ -4,12 +4,14 @@ class Item::ListStepsController < ApplicationController
 
   def show
     @item = Item.find(params[:item_id])
+    # @category = @item.build_category
     # @item = current_user.items.build(params[:item_id])
     render_wizard
   end
 
   def update
     @item = Item.find(params[:item_id])
+    # @category = @item.category
     # byebug
     @item.update(item_params(step))
     render_wizard @item
@@ -23,7 +25,7 @@ class Item::ListStepsController < ApplicationController
       when "new_name_photo"
         [:item_name, :item_photo]
       when "new_cat_des"
-        [:description]
+        [:category_id, :description]
       when "new_worth"
         [:price_worth]
       when "new_price_loca"

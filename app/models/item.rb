@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
-  belongs_to :category
+  belongs_to :category, optional: true
+  accepts_nested_attributes_for :category
 
   # validates :item_name, presence: true, length: {minimum: 10, maximum: 50}
   # validates :item_photo, presence: true
@@ -20,7 +21,7 @@ class Item < ApplicationRecord
   validates :item_name, :item_photo, presence: true, if: -> { required_for_step?(:new_name_photo) }
   validates :item_name, length: { minimum: 10, maximum: 50 }, if: -> { required_for_step?(:new_name_photo) }
 
-  validates :description, presence: true, if: -> { required_for_step?(:new_cat_des) }
+  validates :description, :category_id, presence: true, if: -> { required_for_step?(:new_cat_des) }
   validates :description, length: { minimum: 10, maximum: 400 }, if: -> { required_for_step?(:new_cat_des) }
 
   validates :price_worth, presence: true, if: -> { required_for_step?(:new_worth) }
