@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #   get 'list_steps_controller/show'
   #   get 'list_steps_controller/update'
   # end
-  root 'pages#home'
+  root 'pages#index'
   devise_for :users,
               path: '',
               path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration' }
