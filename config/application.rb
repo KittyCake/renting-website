@@ -29,5 +29,8 @@ module RentingWebsite
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # serve assets
+    config.serve_static_assets = true
   end
 end
