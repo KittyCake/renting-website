@@ -18,8 +18,13 @@
             <legend>Describe your item...</legend>
             <div class="col-md-4">
               <div class="form-group">
+                  <%= f.association :category, collection: Category.roots.order('name ASC'), class: "form-control" %>
+              </div>
+            </div>
 
-                  <%= f.association :category, collection: Category.order('name ASC'), class: "form-control" %>
+            <div class="col-md-4">
+              <div class="form-group">
+                  <%= f.association :category, collection: Category.roots.order('name ASC'), class: "form-control" %>
               </div>
             </div>
 
