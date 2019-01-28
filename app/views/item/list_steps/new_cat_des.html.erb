@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <div class="container">
-      <%= form_for @item, method: :put, url: wizard_path do |f| %>
+      <%= simple_form_for @item, method: :put, url: wizard_path do |f| %>
         <% if f.object.errors.any? %>
           <div class="error_messages">
             <% f.object.errors.full_messages.each do |error| %>
@@ -18,9 +18,20 @@
             <legend>Describe your item...</legend>
             <div class="col-md-4">
               <div class="form-group">
-            <%= f.text_area :description,placeholder: "Describe your item or package...", rows: 10, class: "form-control" %>
+                  <%= f.association :category, collection: Category.roots.order('name ASC'), class: "form-control" %>
               </div>
+            </div>
 
+            <div class="col-md-4">
+              <div class="form-group">
+                  <%= f.association :category, collection: Category.roots.order('name ASC'), class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                  <%= f.text_field :description, placeholder: "Describe your item or package...", rows: 10, class: "form-control" %>
+              </div>
             </div>
           </div>
 
